@@ -68,12 +68,5 @@ int main(int argc, char const *argv[])
 
 	SetConsoleTextAttribute(hConsole, 15);
 
-	// TEST
-	Filereader fr;
-	fr.read("D:/Workspace/adventofcode-2023/data/test.txt");
-	std::string line;
-	while (!fr.eof())
-		std::cout << fr.getLine() << std::endl;
-
     return 0;
 }
