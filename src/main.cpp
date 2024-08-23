@@ -9,8 +9,8 @@
 #include "day1.h"
 
 class Example : public Puzzle {
-	
-public :
+
+public:
 	Example() : Puzzle("Example puzzle") {}
 
 	std::string execute() override {
@@ -19,7 +19,7 @@ public :
 	}
 };
 
-int main(int argc, char const *argv[])
+int main(int argc, char const* argv[])
 {
 	HANDLE hConsole;
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -28,10 +28,10 @@ int main(int argc, char const *argv[])
 	SetConsoleTextAttribute(hConsole, 13);
 	std::cout << "ADVENT OF CODE 2023\n\n";
 	SetConsoleTextAttribute(hConsole, 15);
-    std::cout << "SELECT A PUZZLE : " << std::endl;
+	std::cout << "SELECT A PUZZLE : " << std::endl;
 
 	// ADD PUZZLES
-    std::vector<std::unique_ptr<Puzzle>> puzzle_list;
+	std::vector<std::unique_ptr<Puzzle>> puzzle_list;
 	puzzle_list.push_back(std::make_unique<Example>());
 	puzzle_list.push_back(std::make_unique<Day1P1>());
 
@@ -62,11 +62,12 @@ int main(int argc, char const *argv[])
 	catch (const std::exception& e)
 	{
 		SetConsoleTextAttribute(hConsole, 4);
-		std::cout << "[ERROR] : The puzzle execution failed with an exception\n" 
-			<< e.what() << std::endl;
+		std::cout << "[ERROR] : The puzzle execution failed with an exception\n";
+		SetConsoleTextAttribute(hConsole, 14);
+		std::cout << e.what() << std::endl;
 	}
 
 	SetConsoleTextAttribute(hConsole, 15);
 
-    return 0;
+	return 0;
 }
