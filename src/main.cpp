@@ -5,12 +5,13 @@
 #include "puzzle.h"
 #include "filereader.h"
 
+// Puzzle codes
+#include "day1.h"
+
 class Example : public Puzzle {
 	
 public :
-	Example() {
-		name = "Example puzzle";
-	}
+	Example() : Puzzle("Example puzzle") {}
 
 	bool execute() override {
 		std::cout << "This is an example..." << std::endl;
@@ -32,6 +33,7 @@ int main(int argc, char const *argv[])
 	// ADD PUZZLES
     std::vector<std::unique_ptr<Puzzle>> puzzle_list;
 	puzzle_list.push_back(std::make_unique<Example>());
+	puzzle_list.push_back(std::make_unique<Day1P1>());
 
 	// PRINT PUZZLES
 	int index = 0;

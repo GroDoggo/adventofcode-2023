@@ -8,6 +8,7 @@ file(GLOB PROJECT_CPP_FILES
 file(GLOB PROJECT_INCLUDE_FILES
     "src/puzzle.h"
     "src/filereader.h"
+    "src/day1.h"
 )
 
 add_executable( adventofcode2023
