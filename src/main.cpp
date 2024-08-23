@@ -13,9 +13,9 @@ class Example : public Puzzle {
 public :
 	Example() : Puzzle("Example puzzle") {}
 
-	bool execute() override {
+	std::string execute() override {
 		std::cout << "This is an example..." << std::endl;
-		return true;
+		return "true";
 	}
 };
 
@@ -51,15 +51,13 @@ int main(int argc, char const *argv[])
 	// EXECUTE SELECTED PUZZLE
 	try
 	{
-		bool result = puzzle_list[selected_puzzle]->execute();
-		if (result) {
-			SetConsoleTextAttribute(hConsole, 10);
-			std::cout << "The puzzle execution ended with no error" << std::endl;
-		}
-		else {
-			SetConsoleTextAttribute(hConsole, 6);
-			std::cout << "[WARNING] : The puzzle execution ended with an error" << std::endl;
-		}
+		std::string result = puzzle_list[selected_puzzle]->execute();
+		SetConsoleTextAttribute(hConsole, 10);
+		std::cout << "The puzzle execution ended with no error" << std::endl;
+		SetConsoleTextAttribute(hConsole, 15);
+		std::cout << "Puzzle result : ";
+		SetConsoleTextAttribute(hConsole, 6);
+		std::cout << result << std::endl;
 	}
 	catch (const std::exception& e)
 	{
